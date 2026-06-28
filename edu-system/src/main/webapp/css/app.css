@@ -1,0 +1,70 @@
+/**
+ * 教务管理系统 - 自定义样式
+ */
+
+/* 主内容区域 */
+#app > main {
+    min-height: 70vh;
+    padding-top: 1rem;
+}
+
+/* 工具栏 */
+.toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* 小按钮 */
+button.small {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+/* 统计卡片网格 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid article {
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.grid article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.grid article h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+/* 下拉菜单中的链接样式 */
+.dropdown ul li a {
+    display: block;
+    padding: 0.4rem 1rem;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.dropdown ul li a:hover {
+    background: var(--primary-focus);
+    color: var(--primary-inverse);
+}
+
+/* 响应式表格 */
+table {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap;
+    }
+}

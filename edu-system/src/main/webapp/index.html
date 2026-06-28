@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教务管理系统</title>
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="app">
+        <header class="container">
+            <nav>
+                <ul>
+                    <li><strong>🏫 教务管理系统</strong></li>
+                </ul>
+                <ul>
+                    <li><router-link to="/" role="button" class="secondary outline small">首页</router-link></li>
+                    <li>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary outline small">基础数据</summary>
+                            <ul>
+                                <li><router-link to="/colleges">学院管理</router-link></li>
+                                <li><router-link to="/teachers">教师管理</router-link></li>
+                                <li><router-link to="/specialities">专业管理</router-link></li>
+                                <li><router-link to="/classgroups">班级管理</router-link></li>
+                                <li><router-link to="/students">学生管理</router-link></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary outline small">课程管理</summary>
+                            <ul>
+                                <li><router-link to="/courses">课程列表</router-link></li>
+                                <li><router-link to="/course-tasks">课程任务</router-link></li>
+                                <li><router-link to="/course-assigns">必修课指派</router-link></li>
+                                <li><router-link to="/course-subtasks">课程子任务</router-link></li>
+                                <li><router-link to="/course-elections">选修课管理</router-link></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary outline small">查询统计</summary>
+                            <ul>
+                                <li><router-link to="/class-schedule">班级必修课表</router-link></li>
+                                <li><router-link to="/student-schedule">个人选修课表</router-link></li>
+                                <li><router-link to="/stats">统计汇总</router-link></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <router-view></router-view>
+        </main>
+
+        <footer class="container" style="text-align:center; margin-top:2rem; padding:1rem; color:var(--muted-color)">
+            <small>基于 Java Web + Vue.js 的教务管理系统 © 2025</small>
+        </footer>
+    </div>
+
+    <!-- Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Vue Router -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@4/dist/vue-router.global.prod.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- API 封装 -->
+    <script src="js/api.js"></script>
+    <!-- 主应用 -->
+    <script src="js/app.js"></script>
+</body>
+</html>

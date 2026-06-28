@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>教务管理系统</display-name>
+
+    <!-- 跨域过滤器 -->
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.edu.filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+
+    <!-- College Servlet -->
+    <servlet>
+        <servlet-name>CollegeServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CollegeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollegeServlet</servlet-name>
+        <url-pattern>/api/colleges/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Teacher Servlet -->
+    <servlet>
+        <servlet-name>TeacherServlet</servlet-name>
+        <servlet-class>com.edu.servlet.TeacherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeacherServlet</servlet-name>
+        <url-pattern>/api/teachers/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Speciality Servlet -->
+    <servlet>
+        <servlet-name>SpecialityServlet</servlet-name>
+        <servlet-class>com.edu.servlet.SpecialityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpecialityServlet</servlet-name>
+        <url-pattern>/api/specialities/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- ClassGroup Servlet -->
+    <servlet>
+        <servlet-name>ClassGroupServlet</servlet-name>
+        <servlet-class>com.edu.servlet.ClassGroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClassGroupServlet</servlet-name>
+        <url-pattern>/api/classgroups/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Student Servlet -->
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>com.edu.servlet.StudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/api/students/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Course Servlet -->
+    <servlet>
+        <servlet-name>CourseServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseServlet</servlet-name>
+        <url-pattern>/api/courses/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- CourseTask Servlet -->
+    <servlet>
+        <servlet-name>CourseTaskServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CourseTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseTaskServlet</servlet-name>
+        <url-pattern>/api/course-tasks/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- CourseAssign Servlet -->
+    <servlet>
+        <servlet-name>CourseAssignServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CourseAssignServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseAssignServlet</servlet-name>
+        <url-pattern>/api/course-assigns/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- CourseSubtask Servlet -->
+    <servlet>
+        <servlet-name>CourseSubtaskServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CourseSubtaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseSubtaskServlet</servlet-name>
+        <url-pattern>/api/course-subtasks/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- CourseElection Servlet -->
+    <servlet>
+        <servlet-name>CourseElectionServlet</servlet-name>
+        <servlet-class>com.edu.servlet.CourseElectionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseElectionServlet</servlet-name>
+        <url-pattern>/api/course-elections/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Stats Servlet -->
+    <servlet>
+        <servlet-name>StatsServlet</servlet-name>
+        <servlet-class>com.edu.servlet.StatsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StatsServlet</servlet-name>
+        <url-pattern>/api/stats/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- 欢迎页面 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

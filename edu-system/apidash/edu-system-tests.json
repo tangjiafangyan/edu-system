@@ -1,0 +1,164 @@
+{
+  "name": "教务管理系统 API 测试集",
+  "baseUrl": "http://localhost:8080/edu-system/api",
+  "tests": [
+    {
+      "name": "仪表盘概览",
+      "method": "GET",
+      "path": "/stats",
+      "expectedStatus": 200
+    },
+    {
+      "name": "统计汇总",
+      "method": "GET",
+      "path": "/stats/speciality",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学院] 查询列表",
+      "method": "GET",
+      "path": "/colleges",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学院] 模糊搜索",
+      "method": "GET",
+      "path": "/colleges?keyword=信息",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学院] 查询详情",
+      "method": "GET",
+      "path": "/colleges/1",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学院] 新增",
+      "method": "POST",
+      "path": "/colleges",
+      "body": { "name": "测试学院", "dean": "测试院长", "description": "API测试" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[教师] 查询列表(含学院)",
+      "method": "GET",
+      "path": "/teachers",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[教师] 模糊搜索",
+      "method": "GET",
+      "path": "/teachers?keyword=王",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[教师] 新增",
+      "method": "POST",
+      "path": "/teachers",
+      "body": { "name": "新教师", "title": "讲师", "gender": "男", "collegeId": 1, "email": "new@test.com", "phone": "13800000001" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[专业] 查询列表(含学院)",
+      "method": "GET",
+      "path": "/specialities",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[专业] 新增",
+      "method": "POST",
+      "path": "/specialities",
+      "body": { "name": "测试专业", "collegeId": 1, "description": "测试" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[班级] 查询列表(含专业+学院)",
+      "method": "GET",
+      "path": "/classgroups",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[班级] 新增",
+      "method": "POST",
+      "path": "/classgroups",
+      "body": { "name": "测试班", "specialityId": 1, "grade": 2025 },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学生] 查询列表(四表联合)",
+      "method": "GET",
+      "path": "/students",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学生] 模糊搜索",
+      "method": "GET",
+      "path": "/students?keyword=张",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[学生] 新增",
+      "method": "POST",
+      "path": "/students",
+      "body": { "name": "新学生", "gender": "男", "studentNo": "2025999", "classgroupId": 1, "email": "s@test.com", "phone": "13900000001" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[课程] 查询列表",
+      "method": "GET",
+      "path": "/courses",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[课程] 新增",
+      "method": "POST",
+      "path": "/courses",
+      "body": { "name": "测试课程", "code": "TEST001", "credit": 3.0, "hours": 48, "type": "必修", "description": "测试" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[课程任务] 查询列表(含课程+教师)",
+      "method": "GET",
+      "path": "/course-tasks",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[课程任务] 新增",
+      "method": "POST",
+      "path": "/course-tasks",
+      "body": { "courseId": 1, "teacherId": 1, "semester": "2025-2026学年第2学期", "location": "A201", "maxStudents": 40 },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[必修课指派] 查询列表(多表联合)",
+      "method": "GET",
+      "path": "/course-assigns",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[必修课指派] 查询班级课表",
+      "method": "GET",
+      "path": "/course-assigns?classgroupId=1",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[选修课] 查询列表",
+      "method": "GET",
+      "path": "/course-elections",
+      "expectedStatus": 200
+    },
+    {
+      "name": "[选修课] 新增",
+      "method": "POST",
+      "path": "/course-elections",
+      "body": { "studentId": 1, "courseTaskId": 5 },
+      "expectedStatus": 200
+    },
+    {
+      "name": "[404] 查询不存在的记录",
+      "method": "GET",
+      "path": "/colleges/99999",
+      "expectedStatus": 404
+    }
+  ]
+}
